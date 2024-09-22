@@ -79,24 +79,12 @@ button:hover {
     filter: brightness(0.8);
 }
 
-input {
-    width: 14rem;
-    height: 3.25rem;
+img.svg-icon {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
 
-    background-color: var(--background-highlight);
-    color: var(--text-primary);
-
-    border: none;
-    border-radius: 0.3rem;
-
-    padding: 0 1rem;
-
-    font-size: 0.8rem;
-    font-weight: 600;
-
-    transition: all 0.25s ease-in-out;
-
-    outline: none;
+[data-theme='dark'] img.svg-icon {
+    filter: brightness(0) saturate(100%) invert(98%) sepia(7%) saturate(0%) hue-rotate(299deg) brightness(91%) contrast(87%);
 }
 
 /* Do not edit, this allows you to view changes easily in your browser */

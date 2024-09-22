@@ -5,10 +5,13 @@ const HomeScreen = () => {
 
 	return (
 		<>
-            <h1 className="game-title">Hangman</h1>
+            <h1 className="title">Hangman</h1>
+            <h3 className="subtitle">Don't get caught short</h3>
             <img
-                src="./hangman.png"
-                style={{maxWidth: '40%'}}
+                src="./hangman.svg"
+                style={{ maxWidth: "40%" }}
+                alt="Hangman illustration"
+                className="svg-icon"
             />
             <div className="button-wrapper">
                 <button className="start-button" onClick={() => alert("Starting game...")}>
