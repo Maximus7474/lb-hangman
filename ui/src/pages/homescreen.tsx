@@ -1,10 +1,12 @@
 import React from "react";
-// import "./App.css";
 
-const HomeScreen = () => {
+interface HomeScreenProps {
+    ChangePage: (page: string) => void;
+}
 
-	return (
-		<>
+const HomeScreen: React.FC<HomeScreenProps> = ({ ChangePage }) => {
+    return (
+        <>
             <h1 className="title">Hangman</h1>
             <h3 className="subtitle">Don't get caught short</h3>
             <img
@@ -14,18 +16,18 @@ const HomeScreen = () => {
                 className="svg-icon"
             />
             <div className="button-wrapper">
-                <button className="start-button" onClick={() => alert("Starting game...")}>
+                <button className="start-button" onClick={() => ChangePage("start")}>
                     Start Game
                 </button>
-                <button className="settings-button" onClick={() => alert("Opening settings...")}>
+                <button className="settings-button" onClick={() => ChangePage("settings")}>
                     Settings
                 </button>
-                <button className="instructions-button" onClick={() => alert("Viewing instructions...")}>
+                <button className="instructions-button" onClick={() => ChangePage("instructions")}>
                     Instructions
                 </button>
             </div>
         </>
-	);
+    );
 };
 
 export default HomeScreen;

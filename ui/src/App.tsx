@@ -6,8 +6,10 @@ import HomeScreen from "./pages/homescreen";
 const devMode = !window?.["invokeNative"];
 
 const App = () => {
-	const [theme, setTheme] = useState("light");
+	const [theme, setTheme] = useState("dark");
 	const appDiv = useRef(null);
+
+	const [currentPage, setCurrentPage] = useState<string>("home");
 
 	const {
 		getSettings,
@@ -24,11 +26,31 @@ const App = () => {
 		}
 	}, []);
 
+	const switchPage = (newPage: string) => {
+		if (devMode) alert(`Changing page to ${newPage}`);
+		setCurrentPage(newPage);
+	};
+
+	const renderPage = () => {
+        switch (currentPage) {
+            case "home":
+                return <HomeScreen ChangePage={switchPage} />;
+            // case "settings":
+            //     return <SettingsScreen ChangePage={switchPage} />;
+            // case "instructions":
+            //     return <InstructionsScreen ChangePage={switchPage} />;
+            // case "start":
+            //     return <GameScreen ChangePage={switchPage} />;
+            default:
+                return <HomeScreen ChangePage={switchPage} />;
+        }
+    };
+
 	return (
 		<AppProvider>
 			<div className="app" ref={appDiv} data-theme={theme}>
 				<div className="app-wrapper">
-					<HomeScreen />
+					{renderPage()}
 				</div>
 			</div>
 		</AppProvider>
