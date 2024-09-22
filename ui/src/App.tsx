@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import AppProvider from "./utils/AppProvider";
 import HomeScreen from "./pages/homescreen";
+import InstructionScreen from "./pages/instructions";
+import SettingScreen from "./pages/settings";
 
 const devMode = !window?.["invokeNative"];
 
@@ -27,7 +29,6 @@ const App = () => {
 	}, []);
 
 	const switchPage = (newPage: string) => {
-		if (devMode) alert(`Changing page to ${newPage}`);
 		setCurrentPage(newPage);
 	};
 
@@ -35,10 +36,10 @@ const App = () => {
         switch (currentPage) {
             case "home":
                 return <HomeScreen ChangePage={switchPage} />;
-            // case "settings":
-            //     return <SettingsScreen ChangePage={switchPage} />;
-            // case "instructions":
-            //     return <InstructionsScreen ChangePage={switchPage} />;
+            case "settings":
+                return <SettingScreen ChangePage={switchPage} />;
+            case "instructions":
+                return <InstructionScreen ChangePage={switchPage} />;
             // case "start":
             //     return <GameScreen ChangePage={switchPage} />;
             default:
