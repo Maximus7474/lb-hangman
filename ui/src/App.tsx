@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import AppProvider from "./utils/AppProvider";
+import Construction from "./utils/construction";
 
 const devMode = !window?.["invokeNative"];
 
@@ -43,8 +44,7 @@ const App = () => {
 		<AppProvider>
 			<div className="app" ref={appDiv} data-theme={theme}>
 				<div className="app-wrapper">
-					<p>Under Construction</p>
-					<img src="https://i.pinimg.com/originals/eb/1b/27/eb1b27863813653543914d222ceb9cd0.gif" style={{maxWidth: '95%'}}/>
+					<Construction />
 				</div>
 			</div>
 		</AppProvider>
