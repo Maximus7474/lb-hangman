@@ -1,12 +1,11 @@
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+import AppProvider from "./utils/AppProvider";
 
 const devMode = !window?.["invokeNative"];
 
 const App = () => {
 	const [theme, setTheme] = useState("light");
-	const [zoomLevel, setZoomLevel] = useState(1);
-	const [notificationText, setNotificationText] = useState("Notification text");
 	const appDiv = useRef(null);
 
 	const {
@@ -44,22 +43,12 @@ const App = () => {
 		<AppProvider>
 			<div className="app" ref={appDiv} data-theme={theme}>
 				<div className="app-wrapper">
+					<p>Under Construction</p>
+					<img src="https://i.pinimg.com/originals/eb/1b/27/eb1b27863813653543914d222ceb9cd0.gif" style={{maxWidth: '95%'}}/>
 				</div>
 			</div>
 		</AppProvider>
 	);
 }
-
-interface AppProviderProps {
-	children: ReactNode;
-}
-  
-const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
-	if (devMode) {
-	  	return <div className="dev-wrapper">{children}</div>;
-	} else {
-		return <>{children}</>;
-	}
-};
 
 export default App
