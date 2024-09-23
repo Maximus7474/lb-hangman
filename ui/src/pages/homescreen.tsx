@@ -1,10 +1,11 @@
 import React from "react";
 
 interface HomeScreenProps {
+    theme: string,
     ChangePage: (page: string) => void;
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = ({ ChangePage }) => {
+const HomeScreen: React.FC<HomeScreenProps> = ({ theme, ChangePage }) => {
     return (
         <>
             <h1 className="title">Hangman</h1>

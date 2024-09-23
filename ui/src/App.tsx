@@ -35,15 +35,15 @@ const App = () => {
 	const renderPage = () => {
         switch (currentPage) {
             case "home":
-                return <HomeScreen ChangePage={switchPage} />;
+                return <HomeScreen ChangePage={switchPage} theme={theme} />;
             case "settings":
-                return <SettingScreen ChangePage={switchPage} />;
+                return <SettingScreen ChangePage={switchPage} theme={theme} />;
             case "instructions":
-                return <InstructionScreen ChangePage={switchPage} />;
+                return <InstructionScreen ChangePage={switchPage} theme={theme} />;
             // case "start":
             //     return <GameScreen ChangePage={switchPage} />;
             default:
-                return <HomeScreen ChangePage={switchPage} />;
+                return <HomeScreen ChangePage={switchPage} theme={theme} />;
         }
     };
 

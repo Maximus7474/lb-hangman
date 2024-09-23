@@ -2,10 +2,11 @@ import React from "react";
 import Construction from "../utils/construction";
 
 interface SettingScreenProps {
+    theme: string,
     ChangePage: (page: string) => void;
 }
 
-const SettingScreen: React.FC<SettingScreenProps> = ({ ChangePage }) => {
+const SettingScreen: React.FC<SettingScreenProps> = ({ theme, ChangePage }) => {
     return (
         <>
             <h1 className="title">Settings</h1>
