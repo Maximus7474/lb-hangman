@@ -1,7 +1,13 @@
 {
-    "name": "lb-phone-pixelmaze-gameapp",
+    "name": "lb-phone-hangman-gameapp",
     "version": "0.0.0",
-    "private": true,
+    "author": "Maximus7474",
+    "license": "GPL-3.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Maximus7474/lb-hangman.git"
+    },
+    "private": false,
     "homepage": "./",
     "type": "module",
     "dependencies": {
