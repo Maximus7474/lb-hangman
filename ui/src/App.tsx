@@ -4,6 +4,7 @@ import AppProvider from "./utils/AppProvider";
 import HomeScreen from "./pages/homescreen";
 import InstructionScreen from "./pages/instructions";
 import SettingScreen from "./pages/settings";
+import GameScreen from "./pages/gamescreen";
 
 const devMode = !window?.["invokeNative"];
 
@@ -40,8 +41,8 @@ const App = () => {
                 return <SettingScreen ChangePage={switchPage} theme={theme} />;
             case "instructions":
                 return <InstructionScreen ChangePage={switchPage} theme={theme} />;
-            // case "start":
-            //     return <GameScreen ChangePage={switchPage} />;
+            case "start":
+                return <GameScreen ChangePage={switchPage} theme={theme} />;
             default:
                 return <HomeScreen ChangePage={switchPage} theme={theme} />;
         }
