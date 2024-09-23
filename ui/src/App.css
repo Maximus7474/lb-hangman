@@ -79,13 +79,22 @@ button:hover {
     filter: brightness(0.8);
 }
 
-img.svg-icon {
+.svg-icon {
     filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
-[data-theme='dark'] img.svg-icon {
+[data-theme='dark'] .svg-icon {
     filter: brightness(0) saturate(100%) invert(98%) sepia(7%) saturate(0%) hue-rotate(299deg) brightness(91%) contrast(87%);
 }
+
+.text {
+    color: #1C1917;
+}
+
+[data-theme='dark'] .text {
+    color: #f2f2f7;
+}
+
 
 /* Do not edit, this allows you to view changes easily in your browser */
 .dev-wrapper {
