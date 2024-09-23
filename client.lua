@@ -40,3 +40,7 @@ AddEventHandler("onResourceStart", function(resource)
         addApp()
     end
 end)
+
+RegisterNuiCallback('lb-hangman:getRandomWord', function (_, cb)
+    cb("Jurassic")
+end)
