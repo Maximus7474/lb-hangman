@@ -48,15 +48,5 @@ RegisterNuiCallback('lb-hangman:getRandomWord', function (_, cb)
 end)
 
 RegisterNuiCallback('lb-hangman:loadLocale', function (locale, cb)
-    local translations = LoadResourceFile(GetCurrentResourceName(), ('locales/%s.json'):format(locale))
-
-    if not translations then
-        exports["lb-phone"]:SendNotification({
-            app = "Settings",
-            title = "Hangman Application",
-            content = ("Your system language (%s) isn't supported yet."):format(locale),
-        })
-        translations = LoadResourceFile(GetCurrentResourceName(), 'locales/en.json')
-    end
-    cb(json.decode(translations).APP)
+    cb(LoadLocale(locale).APP)
 end)

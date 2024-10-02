@@ -5,6 +5,7 @@ title "LB Phone - App Template | React TS"
 description "A template for creating apps for the LB Phone."
 author "Breze & Loaf"
 
+shared_script "shared.lua"
 client_script "client.lua"
 
 files {
