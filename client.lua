@@ -46,7 +46,7 @@ AddEventHandler("onResourceStart", function(resource)
 end)
 
 RegisterNuiCallback('lb-hangman:getRandomWord', function (_, cb)
-    if type(LocaleObject?.WORDLIST) ~= "table" or #LocaleObject?.WORDLIST < 1 then
+    if type(LocaleObject.WORDLIST) ~= "table" or #LocaleObject.WORDLIST < 1 then
         error(('No wordlist available for the current locale (%s)! This needs to be addressed!'):format(Locale))
         return cb('jurassic')
     end
