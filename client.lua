@@ -9,7 +9,7 @@ local function addApp()
         identifier = identifier, -- unique app identifier
 
         name = "Hangman",
-        description = "Quick, you don't have much time to find the secret word !.",
+        description = "Be careful what you choose, your chances are limited !",
         developer = "Maximus7474",
 
         defaultApp = false,
@@ -18,12 +18,14 @@ local function addApp()
         images = {
             -- "https://cfx-nui-" .. GetCurrentResourceName() .. "/ui/dist/screenshot-light.png",
             -- "https://cfx-nui-" .. GetCurrentResourceName() .. "/ui/dist/screenshot-dark.png"
+            "https://r2.fivemanage.com/pub/v0npxv38jhht.png", --[[ App HomeScreen ]]
+            "https://r2.fivemanage.com/pub/2v3tqx04v9da.png", --[[ App Game Screen ]]
         },
 
         -- ui = "http://localhost:3000",
         ui = GetCurrentResourceName() .. "/ui/dist/index.html",
 
-        icon = "https://cfx-nui-" .. GetCurrentResourceName() .. "/ui/icon.png",
+        icon = "https://r2.fivemanage.com/pub/rchv06ietjsn.png", -- "https://cfx-nui-" .. GetCurrentResourceName() .. "/ui/icon.png",
 
         fixBlur = true
     })
