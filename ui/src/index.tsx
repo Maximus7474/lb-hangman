@@ -4,6 +4,7 @@ import App from "./App"
 
 import "./colors.css"
 import "./index.css"
+import { GlobalProvider } from "./utils/GlobalContext"
 
 const devMode = !window?.["invokeNative"]
 const root = ReactDOM.createRoot(document.getElementById("root"))
@@ -12,7 +13,7 @@ if (window.name === "" || devMode) {
 	const renderApp = () => {
 		root.render(
 			<React.StrictMode>
-				<App />
+				<GlobalProvider><App /></GlobalProvider>
 			</React.StrictMode>
 		)
 	}

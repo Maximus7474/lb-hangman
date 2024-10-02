@@ -5,10 +5,12 @@ import HomeScreen from "./pages/homescreen";
 import InstructionScreen from "./pages/instructions";
 import SettingScreen from "./pages/settings";
 import GameScreen from "./pages/gamescreen";
+import { GlobalProvider, useGlobalContext } from "./utils/GlobalContext";
 
 const devMode = !window?.["invokeNative"];
 
 const App = () => {
+	const { setValue } = useGlobalContext();
 	const [theme, setTheme] = useState("dark");
 	const appDiv = useRef(null);
 
@@ -27,6 +29,14 @@ const App = () => {
 			getSettings().then((settings: any) => setTheme(settings.display.theme));
 			onSettingsChange((settings: any) => setTheme(settings.display.theme));
 		}
+
+		window.addEventListener("message", (e) => {
+			if (e.data?.type === "setup") {
+				if (e.data?.locale) setValue('locale', e.data.locale);
+				if (e.data?.username) setValue('username', e.data.username);
+				if (e.data?.userid) setValue('userid', e.data.userid);
+			}
+		})
 	}, []);
 
 	const switchPage = (newPage: string) => {

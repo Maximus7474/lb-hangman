@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import HangmanWord from './components/gamescreen/WordPlaceholder';
 import Keyboard from './components/gamescreen/LetterGrid';
 import HangmanSVG from './components/gamescreen/CharacterSVG';
+import { useGlobalContext } from '../utils/GlobalContext';
 
 const devMode = !window?.["invokeNative"];
 
@@ -12,6 +13,7 @@ interface GameScreenProps {
 
 const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
     const { fetchNui } = window as any;
+	const { T } = useGlobalContext();
 
     const [wordToGuess, setWordToGuess] = useState<string | null>(devMode ? "jurassic" : null);
     const [guessedLetters, setGuessLetters] = useState<string[]>([]);
@@ -63,20 +65,20 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
 
     useEffect(() => {
         if (isWinner) {
-            console.log('Congratulations, you won!');
+            console.log(T('GAMESCREEN.WIN_HEADING'));
         }
     }, [isWinner]);
 
     useEffect(() => {
         if (isLoser) {
-            console.log('You lost!');
+            console.log(T('GAMESCREEN.LOOSE_HEADING'));
         }
     }, [isLoser]);
 
     if (loading || wordToGuess === null) {
         return (
             <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <p className='text'>Loading...</p>
+                <p className='text'>{T('GAMESCREEN.LOOSE_HEADING')}...</p>
             </div>
         );
     }
@@ -136,7 +138,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
                     <p
                         className='text'
                         style={{textAlign: 'center'}}
-                    >{isWinner ? 'You Found the word !' : 'You loose !'}</p>
+                    >{isWinner ? T('GAMESCREEN.WIN_HEADING') : T('GAMESCREEN.LOOSE_HEADING')}</p>
                     <div
                         style={{display: 'flex', flexDirection: 'row', gap: '1em'}}
                     >
@@ -147,10 +149,10 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
                                 setLoading(false);
                             }, 1000);
                         }}>
-                            Restart
+                            {T('GAMESCREEN.RESTART')}
                         </button>
                         <button className="home-button" onClick={() => ChangePage("home")}>
-                            Home
+                            {T('GAMESCREEN.HOME')}
                         </button>
                     </div>
                 </div>
