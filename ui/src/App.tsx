@@ -11,7 +11,7 @@ const devMode = !window?.["invokeNative"];
 
 const App = () => {
 	const { setValue } = useGlobalContext();
-	const [theme, setTheme] = useState("dark");
+	const [theme, setTheme] = useState("light");
 	const appDiv = useRef(null);
 
 	const [currentPage, setCurrentPage] = useState<string>("home");
