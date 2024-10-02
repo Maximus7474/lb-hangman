@@ -18,21 +18,27 @@ const App = () => {
 
 	const {
 		getSettings,
-		onSettingsChange
+		onSettingsChange,
+		fetchNui
 	} = window as any;
 
 	useEffect(() => {
 		if (devMode) {
 			document.getElementsByTagName("html")[0].style.visibility = "visible";
 			document.getElementsByTagName("body")[0].style.visibility = "visible";
+			return
 		} else {
-			getSettings().then((settings: any) => setTheme(settings.display.theme));
+			getSettings().then((settings: any) => {
+				setTheme(settings.display.theme);
+				fetchNui("lb-hangman:loadLocale", settings.locale)
+					.then((locale: string) => setValue('locale', locale))
+					.catch(err => console.error(`The provided locale (${settings.locale}) didn't return a JSON string ! Please fix inside of the ${GetCurrentResourceName ? GetCurrentResourceName() : "lb-hangman"}/locales/${settings.locale}.json`, err.message));
+			});
 			onSettingsChange((settings: any) => setTheme(settings.display.theme));
 		}
 
 		window.addEventListener("message", (e) => {
 			if (e.data?.type === "setup") {
-				if (e.data?.locale) setValue('locale', e.data.locale);
 				if (e.data?.username) setValue('username', e.data.username);
 				if (e.data?.userid) setValue('userid', e.data.userid);
 			}
