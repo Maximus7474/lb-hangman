@@ -1,0 +1,37 @@
+{
+    "APP": {
+        "HOMESCREEN": {
+            "TITLE": "Hangman",
+            "SUBTITLE": "Don't get caught short!",
+
+            "BUTTONS": {
+                "STARTGAME": "Start Game",
+                "SETTINGS": "Settings",
+                "INSTRUCTIONS": "Instructions"
+            }
+        },
+        "GAMESCREEN": {
+            "LOADING": "Loading",
+            "WIN_HEADING": "You Found the word!",
+            "LOOSE_HEADING": "You loose",
+            "RESTART": "Restart",
+            "HOME": "Home"
+        }
+    },
+    "WORDLIST": [
+        "apple", "banana", "grape", "orange", "peach", "pear", "plum", "berry", "melon", "kiwi",
+        "cat", "dog", "fish", "bird", "cow", "duck", "frog", "goat", "horse", "pig",
+        "car", "bus", "train", "boat", "plane", "bike", "truck", "van", "ship", "subway",
+        "sun", "moon", "star", "cloud", "rain", "snow", "wind", "fog", "hail", "storm",
+
+        "jungle", "desert", "forest", "ocean", "mountain", "volcano", "island", "lagoon", "savanna", "canyon",
+        "guitar", "piano", "violin", "trumpet", "drum", "flute", "saxophone", "accordion", "trombone", "clarinet",
+        "table", "chair", "sofa", "bed", "desk", "shelf", "mirror", "lamp", "cabinet", "wardrobe",
+        "rocket", "satellite", "telescope", "asteroid", "galaxy", "planet", "comet", "meteor", "nebula", "cosmos",
+
+        "crocodile", "dinosaur", "hippopotamus", "rhinoceros", "chimpanzee", "kangaroo", "porcupine", "elephant", "platypus", "chameleon",
+        "microscope", "telescope", "photosynthesis", "evolution", "biodiversity", "metamorphosis", "photosynthesis", "chlorophyll", "ecosystem", "endangered",
+        "philosophy", "psychology", "sociology", "anthropology", "astronomy", "archaeology", "neuroscience", "linguistics", "cartography", "cryptography",
+        "thermometer", "stethoscope", "defibrillator", "ventilator", "cardiovascular", "electrocardiogram", "dermatology", "anesthesiology", "radiology", "ophthalmology"
+    ]
+}
