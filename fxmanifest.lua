@@ -8,6 +8,7 @@ author "Breze & Loaf"
 client_script "client.lua"
 
 files {
+    "locales/*.json",
     "ui/dist/**/*",
     "ui/icon.png"
 }
