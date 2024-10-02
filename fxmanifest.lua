@@ -1,9 +1,10 @@
 fx_version "cerulean"
 game "gta5"
 
-title "LB Phone - App Template | React TS"
-description "A template for creating apps for the LB Phone."
-author "Breze & Loaf"
+title "LB Hangman"
+description "A simple hangman game for LB Phone"
+author "Maximus7474"
+repository "https://github.com/Maximus7474/lb-hangman"
 
 shared_script "shared.lua"
 client_script "client.lua"
@@ -15,4 +16,3 @@ files {
 }
 
 ui_page "ui/dist/index.html"
--- ui_page "http://localhost:3000"
