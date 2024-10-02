@@ -27,7 +27,7 @@ const KEYS = [
   'x',
   'y',
   'z',
-]
+];
 
 type KeyboardProps = {
   theme: string,

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-const devMode = !window?.["invokeNative"];
+import React from "react";
 
 type HangmanWordProps = {
   theme: string,
