@@ -73,7 +73,6 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
         }
     }, [isLoser]);
 
-    // Conditional rendering based on loading state
     if (loading || wordToGuess === null) {
         return (
             <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -112,7 +111,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
                     guessedLetters={guessedLetters}
                     wordToGuess={wordToGuess}
                 />
-                <div style={{ alignSelf: "stretch" }}>
+                { !(isWinner || isLoser ) && <div style={{ alignSelf: "stretch" }}>
                     <Keyboard
                         theme={theme}
                         disabled={isWinner || isLoser}
@@ -120,7 +119,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
                         incorrectLetters={incorrectLetters}
                         addGuessLetter={addGuessLetter}
                     />
-                </div>
+                </div>}
             </div>
 
             {
