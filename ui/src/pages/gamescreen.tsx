@@ -19,9 +19,11 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
     const [guessedLetters, setGuessLetters] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+    const resetGuessingWord = () => {
+        setGuessLetters([]);
         if (devMode) {
             setTimeout(() => {
+                setWordToGuess(wordToGuess === "jurassic" ? "satellite" : "jurassic")
                 setLoading(false);
             }, 500);
             return;
@@ -30,6 +32,10 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
             setWordToGuess(word);
             setLoading(false);
         });
+    };
+
+    useEffect(() => {
+        resetGuessingWord();
     }, []);
 
     const incorrectLetters = guessedLetters.filter(
@@ -67,18 +73,20 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
         if (isWinner) {
             console.log(T('GAMESCREEN.WIN_HEADING'));
         }
+        console.log("End conditions met ?", isWinner || isLoser);
     }, [isWinner]);
 
     useEffect(() => {
         if (isLoser) {
             console.log(T('GAMESCREEN.LOOSE_HEADING'));
         }
+        console.log("End conditions met ?", isWinner || isLoser);
     }, [isLoser]);
 
     if (loading || wordToGuess === null) {
         return (
             <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <p className='text'>{T('GAMESCREEN.LOOSE_HEADING')}...</p>
+                <p className='text'>{T('GAMESCREEN.LOADING')}...</p>
             </div>
         );
     }
@@ -125,7 +133,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
             </div>
 
             {
-                isWinner || isLoser && <div
+                (isWinner || isLoser) && <div
                     style={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -142,13 +150,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ theme, ChangePage }) => {
                     <div
                         style={{display: 'flex', flexDirection: 'row', gap: '1em'}}
                     >
-                        <button className="start-button" onClick={() => {
-                            setLoading(true);
-                            setGuessLetters([]);
-                            setTimeout(() => {
-                                setLoading(false);
-                            }, 1000);
-                        }}>
+                        <button className="start-button" onClick={() => resetGuessingWord()}>
                             {T('GAMESCREEN.RESTART')}
                         </button>
                         <button className="home-button" onClick={() => ChangePage("home")}>
