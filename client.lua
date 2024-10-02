@@ -1,5 +1,7 @@
 local identifier = "hangman"
 
+local lastWords = {}
+
 while GetResourceState("lb-phone") ~= "started" do
     Wait(500)
 end
@@ -44,7 +46,27 @@ AddEventHandler("onResourceStart", function(resource)
 end)
 
 RegisterNuiCallback('lb-hangman:getRandomWord', function (_, cb)
-    cb("jurassic")
+    if type(LocaleObject?.WORDLIST) ~= "table" or #LocaleObject?.WORDLIST < 1 then
+        error(('No wordlist available for the current locale (%s)! This needs to be addressed!'):format(Locale))
+        return cb('jurassic')
+    end
+
+    local wordList = LocaleObject.WORDLIST
+    local newWord
+
+    for i = 1, 5 do
+        newWord = wordList[math.random(#wordList)]
+        if not TableContains(lastWords, newWord) then
+            break
+        end
+    end
+
+    table.insert(lastWords, newWord)
+    if #lastWords > 5 then
+        table.remove(lastWords, 1)
+    end
+
+    cb(newWord)
 end)
 
 RegisterNuiCallback('lb-hangman:loadLocale', function (locale, cb)
