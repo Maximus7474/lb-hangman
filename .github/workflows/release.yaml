@@ -1,0 +1,80 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.RELEASE }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies and build UI
+        run: |
+          cd ui
+          npm install
+          npm run build
+
+      - name: Update fxmanifest.lua version
+        run: |
+          NEW_VERSION="${GITHUB_REF#refs/tags/}"
+          sed -i '/^version /c\version "'$NEW_VERSION'"' ./fxmanifest.lua
+
+      - name: Commit updated fxmanifest.lua
+        run: |
+            NEW_VERSION="${GITHUB_REF#refs/tags/}"
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git checkout -b releaseworkflow
+            git add ./fxmanifest.lua
+            git commit -m "chore(fxmanifest): bump version to $NEW_VERSION"
+            git push origin main --force
+
+      - name: Prepare files for release
+        run: |
+          mkdir -p release/ui
+          shopt -s extglob
+          cp -r !(release|.github|ui) ./release/
+          cp -r ./ui/dist ./release/ui/
+          cp ./ui/icon.png ./release/ui/
+
+      - name: Create a zip file for the release
+        run: |
+          REPO_NAME=${GITHUB_REPOSITORY##*/}
+          zip -r "${REPO_NAME}.zip" ./release
+
+      - name: Where are my files currently ?
+        run: |
+          ls
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./lb-hangman.zip
+          asset_name: lb-hangman.zip
+          asset_content_type: application/zip
