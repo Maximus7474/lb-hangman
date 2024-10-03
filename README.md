@@ -2,6 +2,10 @@
 
 Inspired from [Dilara Uluturhan](https://github.com/dilarauluturhan) [hangman website game](https://github.com/dilarauluturhan/hangman) go check it out.
 
+## Download
+- Download from [release tab](https://github.com/Maximus7474/lb-hangman/releases) and insert into your server.
+- If cloning the repository or downloading the repository zip you **will** need to build the UI yourself.
+
 ## Installing modules
 
 1. Install [node.js](https://nodejs.org/en/download)
