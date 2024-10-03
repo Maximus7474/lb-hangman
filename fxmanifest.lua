@@ -4,7 +4,7 @@ game "gta5"
 title "LB Hangman"
 description "A simple hangman game for LB Phone"
 author "Maximus7474"
-version ""
+version "v0.1.0"
 repository "https://github.com/Maximus7474/lb-hangman"
 
 shared_script "shared.lua"
