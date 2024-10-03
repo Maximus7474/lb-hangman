@@ -33,26 +33,32 @@ jobs:
 
       - name: Commit updated fxmanifest.lua
         run: |
-            NEW_VERSION="${GITHUB_REF#refs/tags/}"
             git config --global user.name "github-actions[bot]"
             git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git checkout -b releaseworkflow
+            git checkout -b main
             git add ./fxmanifest.lua
             git commit -m "chore(fxmanifest): bump version to $NEW_VERSION"
             git push origin main --force
 
       - name: Prepare files for release
         run: |
-          mkdir -p release/ui
-          shopt -s extglob
-          cp -r !(release|.github|ui) ./release/
-          cp -r ./ui/dist ./release/ui/
-          cp ./ui/icon.png ./release/ui/
+            # Create the release directory by copying everything except the release directory itself
+            mkdir -p release
+            shopt -s extglob  # Enable extended pattern matching
+            cp -r !("release") ./release/  # Copy everything except the release directory
+        
+            # Remove unwanted directories and files from the release folder
+            rm -rf ./release/.github
+            rm -rf ./release/ui/src
+            rm -rf ./release/ui/*  # Remove everything else from the ui folder in the release
+            cp -r ./ui/dist ./release/ui/  # Copy only the dist folder back
+            cp ./ui/icon.png ./release/ui/  # Copy the icon.png file
 
       - name: Create a zip file for the release
         run: |
           REPO_NAME=${GITHUB_REPOSITORY##*/}
-          zip -r "${REPO_NAME}.zip" ./release
+          cd release
+          zip -r "../${REPO_NAME}.zip" .
 
       - name: Where are my files currently ?
         run: |
