@@ -1,5 +1,8 @@
 # LB Phone - Hangman Game
 
+  ![](https://img.shields.io/github/downloads/Maximus7474/5M-Elevator/total?logo=github)
+  ![](https://img.shields.io/github/v/release/Maximus7474/5M-Elevator?logo=github)
+
 Inspired from [Dilara Uluturhan](https://github.com/dilarauluturhan) [hangman website game](https://github.com/dilarauluturhan/hangman) go check it out.
 
 ## Download
