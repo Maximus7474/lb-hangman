@@ -18,7 +18,7 @@ Inspired from [Dilara Uluturhan](https://github.com/dilarauluturhan) [hangman we
 
 ## Developing the app
 
-1. Run `npm dev`
+1. Run `npm run dev #`
 2. Go to `http://localhost:3000` in your browser to see the app in your browser.
 3. Comment out line 25 and uncomment line 24 in client.lua.
 4. Refresh and ensure the resource
