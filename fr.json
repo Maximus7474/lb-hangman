@@ -1,0 +1,37 @@
+{
+    "APP": {
+        "HOMESCREEN": {
+            "TITLE": "Pendu",
+            "SUBTITLE": "Ne te fais pas avoir !",
+
+            "BUTTONS": {
+                "STARTGAME": "Commencer le jeu",
+                "SETTINGS": "Paramètres",
+                "INSTRUCTIONS": "Instructions"
+            }
+        },
+        "GAMESCREEN": {
+            "LOADING": "Chargement",
+            "WIN_HEADING": "Tu as trouvé le mot !",
+            "LOOSE_HEADING": "Tu as perdu",
+            "RESTART": "Recommencer",
+            "HOME": "Accueil"
+        }
+    },
+    "WORDLIST": [
+        "pomme", "banane", "raisin", "orange", "pêche", "poire", "prune", "baie", "melon", "kiwi",
+        "chat", "chien", "poisson", "oiseau", "vache", "canard", "grenouille", "chèvre", "cheval", "cochon",
+        "voiture", "bus", "train", "bateau", "avion", "vélo", "camion", "fourgon", "navire", "métro",
+        "soleil", "lune", "étoile", "nuage", "pluie", "neige", "vent", "brouillard", "grêle", "tempête",
+
+        "jungle", "désert", "forêt", "océan", "montagne", "volcan", "île", "lagon", "savane", "canyon",
+        "guitare", "piano", "violon", "trompette", "tambour", "flûte", "saxophone", "accordéon", "trombone", "clarinette",
+        "table", "chaise", "canapé", "lit", "bureau", "étagère", "miroir", "lampe", "placard", "armoire",
+        "fusée", "satellite", "télescope", "astéroïde", "galaxie", "planète", "comète", "météore", "nébuleuse", "cosmos",
+
+        "crocodile", "dinosaure", "hippopotame", "rhinocéros", "chimpanzé", "kangourou", "porc-épic", "éléphant", "ornithorynque", "caméléon",
+        "microscope", "télescope", "photosynthèse", "évolution", "biodiversité", "métamorphose", "photosynthèse", "chlorophylle", "écosystème", "en danger",
+        "philosophie", "psychologie", "sociologie", "anthropologie", "astronomie", "archéologie", "neurosciences", "linguistique", "cartographie", "cryptographie",
+        "thermomètre", "stéthoscope", "défibrillateur", "ventilateur", "cardiovasculaire", "électrocardiogramme", "dermatologie", "anesthésiologie", "radiologie", "ophtalmologie"
+    ]
+}
