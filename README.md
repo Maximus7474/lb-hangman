@@ -28,3 +28,9 @@ Inspired from [Dilara Uluturhan](https://github.com/dilarauluturhan) [hangman we
 1. Run `npm run build` to build the app. The build will be in the `dist` folder.
 2. Comment out line 24 and uncomment line 25 in client.lua.
 3. Refresh and ensure the resource
+
+## This tool could not exists without the help of
+
+[Maximus7474](https://github.com/Maximus7474)
+[Quravat](https://github.com/Quravat)
+[Dilara Uluturhan](https://github.com/dilarauluturhan)
